@@ -1,5 +1,6 @@
 package com.example.scy_test_backend.handler;
 
+import com.example.scy_test_backend.common.BaseResponse;
 import com.example.scy_test_backend.common.CustomException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,12 +11,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(CustomException.class)
-    public ResponseEntity<String> handleCustomException(CustomException e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    public BaseResponse<String> handleCustomException(CustomException e) {
+        return BaseResponse.error(4000, e.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleGeneralException(Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("서버 오류 발생: " + e.getMessage());
+    public BaseResponse<String> handleGeneralException(Exception e) {
+        return BaseResponse.error(5000, e.getMessage());
     }
 }

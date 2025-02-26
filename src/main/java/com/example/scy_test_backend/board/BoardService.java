@@ -13,11 +13,11 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-    public List<Board> getAllBoards() {
+    public List<Board> getAllBoards() throws CustomException {
         return boardRepository.findAll();
     }
 
-    public Board getBoardByIdx(Long idx) {
+    public Board getBoardByIdx(Long idx) throws CustomException {
         return boardRepository.findByIdx(idx);
     }
 
