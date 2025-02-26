@@ -14,8 +14,6 @@ spring:
 springdoc:
   api-docs:
     enabled: true
-    path: /v3/api-docs   # OpenAPI 3.x 문서의 기본 경로
   swagger-ui:
-    enabled: true
-    path: /swagger-ui.html  # Swagger UI 경로
+    path: /swagger-ui.html
 
