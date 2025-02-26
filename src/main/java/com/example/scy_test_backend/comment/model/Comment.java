@@ -2,6 +2,7 @@ package com.example.scy_test_backend.comment.model;
 
 
 import com.example.scy_test_backend.board.model.Board;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,5 +23,6 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "board_idx", nullable = false)
+    @JsonIgnore
     private Board board;
 }
